@@ -18,7 +18,7 @@ RSpec.describe Team, :type => :model do
     expect(duplicate_team).to_not be_valid
   end
 
-  it "can add multipe users to a team" do
+  it "can add multiple users to a team" do
     subject.save!
     subject.users << User.create(name: Faker::Name.name, email: Faker::Internet.email)
     subject.users << User.create(name: Faker::Name.name, email: Faker::Internet.email)

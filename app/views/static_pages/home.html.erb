@@ -1,10 +1,12 @@
 <div class='text-center'>
-  <a href='#' class='nav-btn btn btn-primary'>Teams
+  <%= link_to(teams_path, {:class => 'nav-btn btn btn-primary'}) do %>
+    Teams
     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-  </a>
+  <% end %>
   <br/>
   <br/>
-  <a href='#' class='nav-btn btn btn-primary'>Users
+  <%= link_to(users_path, {:class => 'nav-btn btn btn-primary'}) do %>
+    Users
     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-  </a>
+  <% end %>
 </div>
