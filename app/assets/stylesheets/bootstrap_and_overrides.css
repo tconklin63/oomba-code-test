@@ -4,3 +4,22 @@
   Static version of css will use Glyphicons sprites by default
   =require twitter-bootstrap-static/sprites
 */
+.navbar-default {
+  background-color: navy;
+  border-color: cyan;
+  color: white;
+}
+.navbar-default .navbar-brand {
+  color: white;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: cyan;
+}
+.nav-btn {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  font-size: large;
+  vertical-align: middle;
+}
