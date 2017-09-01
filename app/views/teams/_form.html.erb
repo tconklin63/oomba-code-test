@@ -1,0 +1,8 @@
+<%= form_for @team do |f| %>
+  <div class='form-group'>
+    <%= f.text_field :name, {:placeholder => 'Team Name', class: 'form-control'} %><br/>
+    <%= f.text_area :description, {:placeholder => 'Description', class: 'form-control', :rows => 10} %><br/>
+    <%= f.submit 'Save', {class: 'btn btn-success'} %>
+    <%= link_to 'cancel', teams_path %>
+  </div>
+<% end %>
