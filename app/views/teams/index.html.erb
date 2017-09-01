@@ -19,7 +19,12 @@
           <%= team.description %>
         </td>
         <td>
-          
+          <%= link_to edit_team_path(team), {title: 'Edit Team'} do %>
+            <i class="glyphicon glyphicon-pencil"></i>
+          <% end %>
+          <%= link_to '#', {style: 'color: red;', title: 'Delete Team'} do %>
+            <i class="glyphicon glyphicon-remove"></i>
+          <% end %>
         </td>
       </tr>
       <% end %>
