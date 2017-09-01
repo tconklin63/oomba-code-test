@@ -9,6 +9,13 @@
   border-color: cyan;
   color: white;
 }
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: cyan;
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
 .navbar-default .navbar-brand {
   color: white;
 }
@@ -22,4 +29,7 @@
   padding: 10px;
   font-size: large;
   vertical-align: middle;
+}
+td {
+  text-align: left;
 }

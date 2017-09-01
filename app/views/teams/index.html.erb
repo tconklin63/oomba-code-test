@@ -1,3 +1,27 @@
 <div class='text-center'>
   <h2>Teams</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+      <tr>
+        <td>
+          <%= team.name %>
+        </td>
+        <td>
+          <%= team.description %>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
