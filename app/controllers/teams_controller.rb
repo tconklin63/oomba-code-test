@@ -4,6 +4,10 @@ class TeamsController < ApplicationController
     @teams = Team.all.order(name: :asc)
   end
 
+  def show
+    @team = Team.find(params[:id])
+  end
+
   def new
     @team = Team.new
   end

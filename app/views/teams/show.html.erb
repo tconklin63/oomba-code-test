@@ -1,0 +1,35 @@
+<div class='text-center'>
+  <h2><%= @team.name %></h2>
+  <div class='row'>
+    <div class='col-md-2'>&nbsp;</div>
+    <div class='col-md-8'><%= @team.description %></div>
+  </div>
+  <h3>Team Members</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @team.users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= link_to '#', {method: :delete, style: 'color: red;', title: 'Remove Player From Team', data: {confirm: 'Are you sure you want to remove this player from the team?'}} do %>
+              <i class="glyphicon glyphicon-remove"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

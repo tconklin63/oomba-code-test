@@ -9,6 +9,14 @@ RSpec.describe TeamsController do
     end
   end
 
+  describe "GET show" do
+    it "renders the show template" do
+      team = Team.create(name: Faker::Team.creature, description: Faker::Lorem.sentence)
+      get :show, params: {id: team.id}
+      expect(response).to render_template("show")
+    end
+  end
+
   describe "GET new" do
     it "renders the new template" do
       get :new
