@@ -13,8 +13,8 @@ class TeamsController < ApplicationController
   end
 
   def create
-    Team.create(team_params)
-    redirect_to :teams #TODO: this should redirect to show
+    @team = Team.create(team_params)
+    redirect_to @team
   end
 
   def edit
@@ -22,8 +22,9 @@ class TeamsController < ApplicationController
   end
 
   def update
-    Team.find(params[:id]).update_attributes(team_params)
-    redirect_to :teams #TODO: this should redirect to show
+    @team = Team.find(params[:id])
+    @team.update_attributes(team_params)
+    redirect_to @team
   end
 
   def destroy
