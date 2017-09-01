@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
 
   def create
     Team.create(team_params)
-    redirect_to :teams
+    redirect_to :teams #TODO: this should redirect to show
   end
 
   def edit
@@ -19,6 +19,11 @@ class TeamsController < ApplicationController
 
   def update
     Team.find(params[:id]).update_attributes(team_params)
+    redirect_to :teams #TODO: this should redirect to show
+  end
+
+  def destroy
+    Team.find(params[:id]).destroy
     redirect_to :teams
   end
 

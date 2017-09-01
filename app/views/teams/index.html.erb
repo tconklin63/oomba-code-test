@@ -22,7 +22,7 @@
           <%= link_to edit_team_path(team), {title: 'Edit Team'} do %>
             <i class="glyphicon glyphicon-pencil"></i>
           <% end %>
-          <%= link_to '#', {style: 'color: red;', title: 'Delete Team'} do %>
+          <%= link_to team_path(team), {method: :delete, style: 'color: red;', title: 'Delete Team'} do %>
             <i class="glyphicon glyphicon-remove"></i>
           <% end %>
         </td>
