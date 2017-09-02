@@ -1,24 +1,40 @@
-# README
+## Oomba Coding Test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Dependencies
+This app was developed and tested with the following versions.
 
-Things you may want to cover:
+* Ruby 2.4.0
+* Rails 5.0.2
 
-* Ruby version
+There are no other dependencies other than the gems in the Gemfile.
 
-* System dependencies
+### Installation
 
-* Configuration
+Here are the steps to get this project up and running for the first time locally.
 
-* Database creation
+````
+git clone git@github.com:tconklin63/oomba-code-test.git
+cd oomba-code-test
+bundle install
+rake db:create
+rake db:migrate
+````
+Optionally you can also seed the database with some random test data.
 
-* Database initialization
+````
+rake db:seed
+````
+To run the unit tests execute the following.
 
-* How to run the test suite
+````
+bundle exec rspec
+````
+### Running the App
+This app is configured to use the Puma web server locally when running in a development environment. Emails will be opened in the browser with the 'letter_opener' gem. To run the server, execute the following from the app root.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+````
+rails s
+````
+The app wil then be availble in the browser at http://localhost:3000
+### Additional Information
+Since it was not a requirement, there is no user athentication. Anyone can create teams and invite users without any login required. Teams can be created in the app itself, but the only way to create users is by seeding the database, using the Rails console, or inviting users via email in the app.
