@@ -151,6 +151,28 @@ RSpec.describe TeamsController do
       post :confirm, params: {id: team.id, name: name, email: email}
       expect(response).to redirect_to(team)
     end
+  end
+
+  describe "GET remove_player" do
+    let(:team) { Team.create(name: Faker::Team.creature, description: Faker::Lorem.sentence) }
+    let(:user) { User.create(name: Faker::Name.name, email: Faker::Internet.email) }
+
+    before(:each) do
+      team.save
+      team.reload
+      user.save
+      user.reload
+      team.users << user
+      get :remove_player, params: {id: team.id, user_id: user.id}
+    end
+
+    it 'removes player from team' do
+      expect(team.reload.users).to be_empty
+    end
+
+    it 'redirects to team page' do
+      expect(response).to redirect_to(team)
+    end
 
   end
 

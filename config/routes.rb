@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post :invite
       get  :accept
       post :confirm
+      get  :remove_player
     end
   end
 

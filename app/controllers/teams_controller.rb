@@ -54,6 +54,13 @@ class TeamsController < ApplicationController
     redirect_to team
   end
 
+  def remove_player
+    team = Team.find(params[:id])
+    user = User.find(params[:user_id])
+    team.users.delete(user)
+    redirect_to team
+  end
+
   private
 
   def team_params
