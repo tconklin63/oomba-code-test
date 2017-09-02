@@ -2,7 +2,14 @@ class TeamsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:invite]
 
   def index
-    @teams = Team.all.order(name: :asc)
+    if params[:search_param].blank?
+      @teams = Team.all.order(name: :asc)
+    else
+      users      = User.where('name LIKE ?', "%#{params[:search_param]}%")
+      teams      = Team.where('name LIke ?', "%#{params[:search_param]}%")
+      teams_user = TeamsUser.where(user_id: users.pluck(:id)) + TeamsUser.where(team_id: teams.pluck(:id))
+      @teams     = Team.where(id: teams_user.pluck(:team_id))
+    end
   end
 
   def show
