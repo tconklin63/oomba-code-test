@@ -5,7 +5,7 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Actions</th>
+        <th>Teams</th>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +18,14 @@
             <%= user.email %>
           </td>
           <td>
-            
+            <% if user.teams.present? %>
+              <% user.teams.each_with_index do |team, idx| %>
+                <% if idx != 0 %>
+                  <%='|'%>
+                <% end %>
+                <%=link_to team.name, team_path(team)%>
+              <% end %>
+            <% end %>
           </td>
         </tr>
       <% end %>
