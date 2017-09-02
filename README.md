@@ -35,6 +35,6 @@ This app is configured to use the Puma web server locally when running in a deve
 ````
 rails s
 ````
-The app wil then be availble in the browser at http://localhost:3000
+The app will then be availble in the browser at http://localhost:3000
 ### Additional Information
 Since it was not a requirement, there is no user athentication. Anyone can create teams and invite users without any login required. Teams can be created in the app itself, but the only way to create users is by seeding the database, using the Rails console, or inviting users via email in the app.
