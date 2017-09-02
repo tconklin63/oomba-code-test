@@ -6,6 +6,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Teams</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,11 @@
                 <% end %>
                 <%=link_to team.name, team_path(team)%>
               <% end %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user_path(user), {method: :delete, style: 'color: red;', title: 'Delete User', data: {confirm: 'Are you sure you want to delete this user?'}} do %>
+              <i class="glyphicon glyphicon-remove"></i>
             <% end %>
           </td>
         </tr>

@@ -66,19 +66,17 @@ RSpec.describe TeamsController do
     end
   end
 
-  describe "DELETE delete" do
-    before(:each) do
-      @team = Team.create(name: Faker::Team.creature, description: Faker::Lorem.sentence)
-    end
+  describe "DELETE destroy" do
+    let(:team) { Team.create(name: Faker::Team.creature, description: Faker::Lorem.sentence) }
 
     it "deletes an existing team" do
-      expect(Team.find_by(name: @team.name)).to_not be_nil
-      delete :destroy, params: {id: @team.id}
-      expect(Team.find_by(name: @team.name)).to be_nil
+      expect(Team.find_by(name: team.name)).to_not be_nil
+      delete :destroy, params: {id: team.id}
+      expect(Team.find_by(name: team.name)).to be_nil
     end
 
     it "redirects to index page after delete" do
-      delete :destroy, params: {id: @team.id}
+      delete :destroy, params: {id: team.id}
       expect(response).to redirect_to(:teams)
     end
   end
@@ -158,11 +156,7 @@ RSpec.describe TeamsController do
     let(:user) { User.create(name: Faker::Name.name, email: Faker::Internet.email) }
 
     before(:each) do
-      team.save
-      team.reload
-      user.save
-      user.reload
-      team.users << user
+      team.reload.users << user.reload
       get :remove_player, params: {id: team.id, user_id: user.id}
     end
 
