@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @name %>,
+    <p>
+      You have been invited to join the <%= @team_name %>. Click on the link below to accept this invitation.
+    </p>
+    <p>
+      <%= link_to "Accept Invitation", @url %>
+    </p>
+  </body>
+</html>
