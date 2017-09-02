@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :teams do
     member do
       post :invite
+      get  :accept
+      post :confirm
     end
   end
 

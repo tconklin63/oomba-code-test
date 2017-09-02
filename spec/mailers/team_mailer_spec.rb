@@ -6,7 +6,7 @@ RSpec.describe TeamMailer, type: :mailer do
     let(:team) { Team.new(name: Faker::Team.creature, description: Faker::Lorem.sentence) }
     let(:name) { Faker::Name.name }
     let(:email) { Faker::Internet.email }
-    let(:mail) { described_class.invite(team, name, email).deliver_now }
+    let(:mail) { described_class.invite(team, name, email, 'localhost:3000').deliver_now }
 
     it 'renders the subject' do
       expect(mail.subject).to eq("You have been invited to join the #{team.name}")

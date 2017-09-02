@@ -1,0 +1,12 @@
+<div class='col-md-3'>&nbsp;</div>
+<div class='col-md-6'>
+  <p>You have been invited to join the <%= @team.name %>. Please confirm the information below and click 'Accept' to accept this invitation.</p>
+  <div class='text-center form-group'>
+    <%= form_tag confirm_team_path(@team) do %>
+      <input type='text' name='name' id='name' class='form-control' value='<%= @name %>'/><br/>
+      <input type='text' name='email' id='email' class='form-control' value='<%= @email %>'/><br/>
+      <input type='submit' class='btn btn-primary' value='Accept'/>
+      <%= link_to 'Decline', root_path, {class: 'btn btn-warning'} %>
+    <% end %>
+  </div>
+</div>

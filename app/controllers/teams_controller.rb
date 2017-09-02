@@ -35,7 +35,22 @@ class TeamsController < ApplicationController
 
   def invite
     team = Team.find(params[:id])
-    TeamMailer.invite(team, params[:name], params[:email], request.host).deliver_now
+    host = request.port == 80 ? request.host : request.host_with_port
+    TeamMailer.invite(team, params[:name], params[:email], host).deliver_now
+    redirect_to team
+  end
+
+  def accept
+    @team  = Team.find(params[:id])
+    @name  = params[:name]
+    @email = params[:email]
+  end
+
+  def confirm
+    team = Team.find(params[:id])
+    user = User.find_or_create_by(email: params[:email])
+    user.update_attribute('name', params[:name])
+    team.users << user if !team.users.include?(user)
     redirect_to team
   end
 
