@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  skip_before_action :verify_authenticity_token, :only => [:invite]
 
   def index
     @teams = Team.all.order(name: :asc)
@@ -30,6 +31,12 @@ class TeamsController < ApplicationController
   def destroy
     Team.find(params[:id]).destroy
     redirect_to :teams
+  end
+
+  def invite
+    team = Team.find(params[:id])
+    TeamMailer.invite(team, params[:name], params[:email], request.host).deliver_now
+    redirect_to team
   end
 
   private

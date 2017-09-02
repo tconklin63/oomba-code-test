@@ -3,5 +3,11 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :users
-  resources :teams
+
+  resources :teams do
+    member do
+      post :invite
+    end
+  end
+
 end

@@ -55,21 +55,23 @@
 
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Invite a Team Member</h4>
-      </div>
-      <div class="modal-body">
-        <div class='form-group'>
-          Enter a name and email address to invite someone to join your team.<br/><br/>
-          <input type='text' class='form-control' placeholder='Name'/><br/>
-          <input type='text' class='form-control' placeholder='Email Address'/>
+      <form name='invite_user' id='invite_user' action='/teams/<%=@team.id%>/invite' method='post'>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Invite a Team Member</h4>
         </div>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" class="btn btn-success" value="Send Invitation"/>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      </div>
+        <div class="modal-body">
+          <div class='form-group'>
+            Enter a name and email address to invite someone to join your team.<br/><br/>
+            <input name='name' id='name' type='text' class='form-control' placeholder='Name'/><br/>
+            <input name='email' id='email' type='text' class='form-control' placeholder='Email Address'/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-success" value="Send Invitation"/>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </form>
     </div>
 
   </div>

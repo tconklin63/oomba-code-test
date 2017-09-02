@@ -29,7 +29,12 @@ RSpec.describe TeamMailer, type: :mailer do
     end
 
     it 'assigns @url' do
-      # Impliment this test
+      require 'uri'
+      team.save
+      team.reload
+      host = 'localhost:3000'
+      url  = URI.encode("http://#{host}/teams/#{team.id}/accept")
+      expect(mail.body.encoded).to match(url)
     end
 
   end
